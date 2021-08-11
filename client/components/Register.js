@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CommonTable from "./CommonTable";
 import axios from "axios";
-import { showAxiosError } from "../utils";
+import { APP_API, showAxiosError } from "../utils";
 
 export default function Register(props) {
   const [data, setData] = useState([]);
@@ -16,7 +16,7 @@ export default function Register(props) {
   const registerStudents = async function (event) {
     try {
       setJsonStr(event.target.value);
-      const url = `${process.env.NEXT_PUBLIC_API}/register`;
+      const url = `${APP_API}/register`;
       const response = await axios.post(url, JSON.parse(jsonstr || event.target.value));
       await loadStudents();
       setSubmitted(true);
@@ -28,7 +28,7 @@ export default function Register(props) {
   const loadStudents = async function () {
     try {
       const jsond = JSON.parse(jsonstr);
-      const url = `${process.env.NEXT_PUBLIC_API}/getcommonstudents?tutor=${jsond.tutor}`;
+      const url = `${APP_API}/getcommonstudents?tutor=${jsond.tutor}`;
       const response = await axios.get(url);
       setData(response.data.students || []);
     } catch (e) {

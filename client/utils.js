@@ -9,4 +9,7 @@ export const showAxiosError = function (e) {
   } else {
     alert(e.message);
   }
-}
+};
+
+export const APP_API =
+  process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_API : "/api";

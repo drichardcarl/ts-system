@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CommonTable from "./CommonTable";
 import axios from "axios";
-import { showAxiosError } from "../utils";
+import { APP_API, showAxiosError } from "../utils";
 
 export default function Query(props) {
   const [data, setData] = useState({});
@@ -14,7 +14,7 @@ export default function Query(props) {
       const extra = emails
         .map((em) => `tutor=${encodeURIComponent(em)}`)
         .join("&");
-      const url = `${process.env.NEXT_PUBLIC_API}/getcommonstudents?${extra}`;
+      const url = `${APP_API}/getcommonstudents?${extra}`;
       const response = await axios.get(url);
       setData({ ...response.data, emails });
       setSubmitted(true);

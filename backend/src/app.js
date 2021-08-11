@@ -1,9 +1,13 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import { ValidationError } from "express-validation";
 import apiRoutes from "./routes/api";
 const app = express();
 
+if (process.env.NODE_ENV === "production")
+  app.use(express.static(path.resolve(__dirname, "../../client/out")));
+  
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());

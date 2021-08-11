@@ -1,0 +1,29 @@
+{
+  "name": "ts-system",
+  "version": "1.0.0",
+  "description": "Demo Application for tutors that need a system where they can manage their students",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "start": "cd backend && yarn && yarn prod",
+    "build": "cd client && yarn && yarn build-static"
+  },
+  "cacheDirectories": [
+    "backend/node_modules",
+    "client/node_modules"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drichardcarl/ts-system.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "create-react-app",
+    "nextjs",
+    "react"
+  ],
+  "license": "MIT",
+  "devDependencies": {}
+}

@@ -1,5 +1,6 @@
 import cn from "classnames";
 import axios from "axios";
+import { APP_API } from "../utils";
 
 export default function CommonTable(props) {
   const onTrClick = async function (event) {
@@ -8,7 +9,7 @@ export default function CommonTable(props) {
         (e) => e.innerText
       );
       rdata[2] = rdata[2].toLowerCase().trim() === "true" ? true : false;
-      const url = `${process.env.NEXT_PUBLIC_API}/suspend`;
+      const url = `${APP_API}/suspend`;
       const response = await axios.post(url, {
         student: rdata[1],
         suspend: !rdata[2],

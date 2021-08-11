@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CommonTable from "./CommonTable";
 import axios from "axios";
-import { showAxiosError } from "../utils";
+import { APP_API, showAxiosError } from "../utils";
 
 export default function Notification(props) {
   const [data, setData] = useState([]);
@@ -16,7 +16,7 @@ export default function Notification(props) {
   const loadRecipients = async function (event) {
     try {
       if (event) setJsonStr(event.target.value);
-      const url = `${process.env.NEXT_PUBLIC_API}/retrievenotifications`;
+      const url = `${APP_API}/retrievenotifications`;
       const response = await axios.post(
         url,
         JSON.parse(jsonstr || event.target.value)

@@ -1,0 +1,13 @@
+{
+  "name": "ts-system",
+  "description": "Demo Application for tutors that need a system where they can manage their students",
+  "scripts": {},
+  "env": {},
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [],
+  "buildpacks": [{ "url": "heroku/nodejs" }]
+}
